@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import PostList from '../lists/PostList';
 import Button from '../ui/Button';
-import data from '../../../data.json';
+import data from '../../data.json';
 
 const Wrapper = styled.div`
     padding: 16px;

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:localhost)",
+      "Bash(npx --yes puppeteer browsers install chrome)",
+      "Bash(npm run *)",
+      "Read(//tmp/**)",
+      "Bash(node screenshot.mjs)"
+    ]
+  }
+}

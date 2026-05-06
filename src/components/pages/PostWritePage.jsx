@@ -49,7 +49,10 @@ function PostWritePage(props) {
                 <Button
                     title='글 작성하기'
                     onClick={() => {
-                        if (!title || !content) return;
+                        if (!title || !content) {
+                            alert('제목과 내용을 입력해주세요')
+                            return;
+                        }
                         onAddPost({
                             id: Date.now(),
                             title,

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import CommentList from '../lists/CommentList';
 import TextInput from '../ui/TextInput';
 import Button from '../ui/Button';
-import data from '../../data.json';
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -46,18 +45,29 @@ const CommentLabel = styled.p`
 `;
 
 function PostViewPage(props) {
+  const { posts } = props;
   const navigate = useNavigate();
-  const { postId } = useParams();
+  const { id } = useParams();
 
-  const post = data.find((item) => {
-    return item.id == postId;
-  });
+  const post = posts.find((item) => item.id == id);
+
   const [comment, setComment] = useState('');
+
+  if (!post) {
+    return (
+      <Wrapper>
+        <Container>
+          <Button title='뒤로 가기' onClick={() => navigate('/')} />
+          <p>포스트를 찾을 수 없습니다.</p>
+        </Container>
+      </Wrapper>
+    );
+  }
 
   return (
     <Wrapper>
         <Container>
-            <Button 
+            <Button
                 title='뒤로 가기'
                 onClick={() => {
                     navigate('/');

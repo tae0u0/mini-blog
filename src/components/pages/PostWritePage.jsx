@@ -23,6 +23,7 @@ const Container = styled.div`
 `;
 
 function PostWritePage(props) {
+    const { onAddPost } = props;
     const navigate = useNavigate();
 
     const [title, setTitle] = useState('');
@@ -48,6 +49,13 @@ function PostWritePage(props) {
                 <Button
                     title='글 작성하기'
                     onClick={() => {
+                        if (!title || !content) return;
+                        onAddPost({
+                            id: Date.now(),
+                            title,
+                            content,
+                            comments: [],
+                        });
                         navigate('/');
                     }}
                 />

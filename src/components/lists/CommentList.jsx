@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PostListItem from './PostListItem';
+import CommentListItem from './CommentListItem';
 
 const Wrapper = styled.div`
     display: flex;
@@ -21,7 +21,7 @@ function CommentList(props) {
                 return (
                     <CommentListItem
                         key={comment.id}
-                        post={comment}
+                        comment={comment}
                     />
                 );
             })}
